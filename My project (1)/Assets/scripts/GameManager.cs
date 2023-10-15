@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private int MaxHP = 3;
     public int CurrentHP;
-    public int score = 0;
-    public bool StillAlive = true;
+    public static int score = 0;
+    public static bool StillAlive = true;
     public LifeIcon LifeIcon;
     public Text timerText;
     //public Text HPText;
@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     {
         CurrentHP = MaxHP;
         LifeIcon.SetLifeGauge(CurrentHP);
+        score = 0;
+        StillAlive = true;
 
     }
     // Update is called once per frame

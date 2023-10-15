@@ -20,7 +20,7 @@ public class LifeIcon : MonoBehaviour
         //　現在の体力数分のライフゲージを作成
         for (int i = 0; i < life; i++)
         {
-            Debug.Log("体力生成中");
+            Debug.Log("Life Generating...");
             Instantiate<GameObject>(lifeObj, transform);
         }
     }

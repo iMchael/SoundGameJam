@@ -14,16 +14,12 @@ public class PlayerTest : MonoBehaviour
         Debug.Log("è’ìÀÇµÇΩÇÊ");
         Debug.Log(GameManager.CurrentHP);
 
-
-        {
             if (collision.gameObject.CompareTag(enemyTag))
             {
-
                 GameManager.CurrentHP--;
                 LifeIcon.SetLifeGauge(GameManager.CurrentHP);
                 LifeIcon.SetLifeGauge2(1);
             }
-        }
 
     }
 

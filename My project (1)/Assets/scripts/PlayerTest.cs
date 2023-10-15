@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class PlayerTest : MonoBehaviour
 {
     public GameManager GameManager;
+    public LifeIcon LifeIcon;
     private string enemyTag = "enemy";
     void OnCollisionEnter(Collision collision) // Health Manager
     {
@@ -17,7 +18,10 @@ public class PlayerTest : MonoBehaviour
         {
             if (collision.gameObject.CompareTag(enemyTag))
             {
+
                 GameManager.CurrentHP--;
+                LifeIcon.SetLifeGauge(GameManager.CurrentHP);
+                LifeIcon.SetLifeGauge2(1);
             }
         }
 

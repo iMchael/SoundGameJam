@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
     public int CurrentHP;
     public int score = 0;
     public bool StillAlive = true;
+    public LifeIcon LifeIcon;
     public Text timerText;
-    public Text HPText;
+    //public Text HPText;
     public Text ScoreText;
     private string enemyTag = "enemy";
     [SerializeField] private float TimeManager = 60;
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CurrentHP = MaxHP;
+        LifeIcon.SetLifeGauge(CurrentHP);
+
     }
     // Update is called once per frame
     void Update()
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
         
         
         timerText.text = TimeManager.ToString("00");
-        HPText.text = CurrentHP.ToString();  //HPをアイコンで表示するならこの行を削除
+        //HPText.text = CurrentHP.ToString();  //HPをアイコンで表示するならこの行を削除
         ScoreText.text = score.ToString();
 
     }

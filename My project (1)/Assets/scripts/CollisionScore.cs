@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class CollisionScore : MonoBehaviour
 {
     public GameManager GameManager;
+    private string enemyTag = "enemy";
     [SerializeField] private GameObject player;
 
 
@@ -14,26 +15,30 @@ public class CollisionScore : MonoBehaviour
 
         if (GameManager.StillAlive == true)
         {
-            int Addscore = 0;
-            Vector3 enemyPos = collision.gameObject.transform.position;
-            Vector3 playerPos = player.transform.position;
-
-            float dis = Vector3.Distance(enemyPos, playerPos);
-
-            if (dis != 0)
+            if (collision.gameObject.CompareTag(enemyTag))
             {
-               
-                dis *= 1;
-                Addscore = 1000 / (int)dis;
 
-                if (Addscore >= 2000)
+                int Addscore = 0;
+                Vector3 enemyPos = collision.gameObject.transform.position;
+                Vector3 playerPos = player.transform.position;
+
+                float dis = Vector3.Distance(enemyPos, playerPos);
+
+                if (dis != 0)
                 {
-                    Addscore = 2000;
-                }
 
-                GameManager.score += Addscore;
+                    dis *= 1;
+                    Addscore = 1000 / (int)dis;
+
+                    if (Addscore >= 2000)
+                    {
+                        Addscore = 2000;
+                    }
+
+                    GameManager.score += Addscore;
+                }
+                Debug.Log(Addscore);
             }
-            Debug.Log(Addscore);
 
         }
     }
